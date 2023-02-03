@@ -38,7 +38,10 @@ void ShowArray(double[,] array)
 }
 */
 
-// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+/* Write a program that takes the positions of an element in a two-dimensional array as input, 
+and returns the value of this element or an indication that there is no such element.*/
+
+/*
 
 Console.Write("Enter the number of rows:  ");
 int rows = Convert.ToInt32(Console.ReadLine());
@@ -87,10 +90,10 @@ else
     Console.WriteLine("The requested array element is: " + numbers[posRow, posColumn]);
 }
 
-
+*/
 // Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-/*
-Console.Write("Enter the number of strings:  ");
+
+/*Console.Write("Enter the number of strings:  ");
 int rows  = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter the number of columns: ");
 int columns = Convert.ToInt32(Console.ReadLine());
@@ -122,14 +125,49 @@ void ShowArray(double[,] array)
         Console.WriteLine("");
     }
 }
+*/
 
+Console.Write("Enter the number of rows:  ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the number of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a minimum value: ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a maximum value: ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+double[,] numbers = new double[rows, columns];
+CrateArrayRandom(numbers);
+ShowArray(numbers);
+void CrateArrayRandom(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Convert.ToDouble(new Random().Next(minValue, maxValue));
+        }
+    }
+}
+void ShowArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + "\t");
+        }
+        Console.WriteLine();
+        
+    }
+    Console.WriteLine();
+}
 int[,] array = new int[rows, columns];
 Random random = new Random();
 for (int i = 0; i < rows; i++)
 {
     for (int j = 0; j < columns; j++)
     {
-        array[i, j] = random.Next(0, 100);
+        array[i, j] = random.Next(minValue, maxValue);
     }
 }
 for (int j = 0; j < columns; j++)
@@ -140,6 +178,11 @@ for (int j = 0; j < columns; j++)
         sum += array[i, j];
     }
     double avg = sum / rows;
-    Console.WriteLine("Arithmetic mean of column elements " + (j + 1) + ": " + avg);
+
+    for (int i = 0; i < columns; i++)
+    {
+    int [] answer = new int [i];
+    }
+    Console.Write(" | " + avg);
+    
 }
-*/
